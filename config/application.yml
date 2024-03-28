@@ -1,0 +1,38 @@
+server:
+  port: 0
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8889/eureka
+
+lc-ant:
+  connector:
+    database:
+      default: mongodb
+      mongodb:
+        database: test-lc-ant
+  services:
+    job-control: test-all-services
+    security: test-all-services
+    tenant: test-all-services
+    user: test-all-services
+  messaging:
+    implementation: rabbitmq
+  security:
+    public-key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1qij8IdoqJsgwvO+lTbrMnjYLaFV+55idNT7180bxbrkkrdi5GcK2oi3Al32KWItM+kb5ketpRbtdoIcf4K7F0XhnN2Kszuc3G9PbjzuFwPKkJu1EuYfrQNlZaztA22VUm0H5mkXSPRPUA1stEuvfYv38E2UfH85xKsTFRifAc3PV+4PQJESpBrntaM0tXaP0R75ucwJcfS3id2Mg3hsd0qGEoAkRWMB+EmHbtOdfyl325Y7zUzA+72321B6qAn1Za9z/4zwoH9tO+TCS+uPINxZOZG8cbLTrLzlsIoqRN5oHcgn8xOGqzdB87Cbqgf0D0AIXnkb3G35/hpqDXvnnQIDAQAB
+  service:
+    security:
+      private-key: MIIEuwIBADANBgkqhkiG9w0BAQEFAASCBKUwggShAgEAAoIBAQDWqKPwh2iomyDC876VNusyeNgtoVX7nmJ01PvXzRvFuuSSt2LkZwraiLcCXfYpYi0z6RvmR62lFu12ghx/grsXReGc3YqzO5zcb09uPO4XA8qQm7US5h+tA2VlrO0DbZVSbQfmaRdI9E9QDWy0S699i/fwTZR8fznEqxMVGJ8Bzc9X7g9AkRKkGue1ozS1do/RHvm5zAlx9LeJ3YyDeGx3SoYSgCRFYwH4SYdu051/KXfbljvNTMD7vbfbUHqoCfVlr3P/jPCgf2075MJL648g3Fk5kbxxstOsvOWwiipE3mgdyCfzE4arN0HzsJuqB/QPQAheeRvcbfn+GmoNe+edAgMBAAECgf8QGuZnwWZgMsEjTsk/BzwBv1n4oEGxTdzFbd/NMIz3c/eKXfbWEjJzGxWwAXLgb2SIwtD0aZqtHOq0Y1U6v3RVmezftBYLtiQnwMNnfFGpS2knhSNIJnmiO7t1dG1F7UiTntPPJskGYlKFHE2yGuo0uZfYOlJ8Ege4R1V2xzsXJUotep5fIghUKwt0b5toQDIbeawUIUi4IW1tqAFLXAsmd54nXyAmXF/8uhu3lt+L5Ol5g360aqwT882h7vPIeQ/BFbNvXx9trQopesCtstb2Gxtt/eSTfpoKLkmxti5cCFtXuKlFGntv/W1ZnzjBeW16MBrgQRFbngskn5ip+FECgYEA/TPcA5l65HN+Sfg7eFT0Ejz7qa6La4re3aNbFR2GECU0oF9ffzsAHhDpOI2GEgembex3RBPAZGdIEleLvD8mdzZsiaSajIr/eMXDu6dA1ZsWhlfWxMmgzucF2EG5E/CT4uV/pO0k1FOqSthQCIw5IoVOPJB6sbchdgMRE8Q3JBkCgYEA2QfEKzqxxfHqLDqdOjrPUqzaSHB1eKCYCQreJE4kQL5IErfSSJU2Gh/pAVKIt69gGyPmMvBwbzlwy+y0tIXLRUaOqAslWIHeoN+oV/7Dul9R/sSjEP22V5PuDR6/A6axXlirWYfE52vMp9b4p7667+AWFbAhJn0++9iycJCXMCUCgYBBZcaay2Z5YPcqZcn+b3rGxyd9EQ8DjM+5UTryPjjlLKbmERwaQYPrQBTsvWj2eTFcTOoVFEDp7d8olaIK0gi+W7k25+PfDvujFvlSG4XcZf0wX7miBC3bosHYtEj4RHf976bDU1ji2mUuhaZOPuF28BVgATUfd5xV3b7oaxKO6QKBgQCue7jyDFk6TBi5gFJBq2BdFozTql43Id25f1xDEfPBfXmSWukb46JAdKEup/00uDFrAHylPXsXYLXXrTFG5T4cLvKoFXXr51VmPwon3LHdV58jVVHIakG7vTmooKxvMgftUxpHe4kJiThbQ9BbhFLkYWNAAn9UY2NMtNYY+5YhZQKBgEJQhKWGLKrqdTSveocZDQEipx2Qh+PZhuHJQ+H0giVE3egrkvdHZbhGHeS1JO19bv65AszcrBBKQ4prBMh8hzBGhHTyS/NSCt6OkznJJmLknEMKur9doufsfWNGpsfZa2/c2UbA2fTRilGRpSK/q522AjOzCZAQRaF14yI01CcZ
+    user:
+      secret: initial-service-user-secret
+      default-database:
+        implementation: mongodb
+
+logging:
+  pattern:
+    correlation: "[${spring.application.name:},%X{CORRELATION_ID:-},%X{TENANT_ID:-},%X{USERNAME:-}]"
+  include-application-name: false
+  level:
+    net.lecousin: DEBUG
+    

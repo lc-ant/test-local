@@ -1,0 +1,15 @@
+meta {
+  name: Authenticate root
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{url}}/public-api/auth/v1/tenant/{{tenantId}}/user/root
+  body: text
+  auth: none
+}
+
+body:text {
+  root
+}

@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: test-api-gateway
+  config:
+    import: configserver:http://localhost:8888
+
+logging:
+  level:
+    root: INFO
+    javax: INFO
+    sun: INFO
+    java: INFO
+    
